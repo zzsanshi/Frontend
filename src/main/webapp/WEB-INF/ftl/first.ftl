@@ -6,6 +6,9 @@
     <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 </head>
 <body>
+<div id="sb-site">
+    <#include "mainsite.ftl" /><#--这个是主要的菜单导航和内容显示的文件-->
+</div>
 <div id="app">
     <div v-html="message"></div>
 </div>

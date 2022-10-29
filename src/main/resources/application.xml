@@ -25,6 +25,10 @@
 <!--        <property name="suffix" value=".jsp"></property>-->
 <!--    </bean>-->
 
+
+
+
+
     <!-- 配置视图解析器 -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
         <!-- 设置响应字符集 -->
@@ -35,18 +39,80 @@
         <property name="suffix" value=".ftl"/>
     </bean>
 
-    <!-- freemarker 配置类 -->
-    <bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-        <!-- 设置视图模板文件的存放位置 -->
+<!--    &lt;!&ndash; freemarker 配置类 &ndash;&gt;-->
+<!--    <bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">-->
+<!--        &lt;!&ndash; 设置视图模板文件的存放位置 &ndash;&gt;-->
+<!--        <property name="templateLoaderPath" value="/WEB-INF/ftl/"/>-->
+<!--        &lt;!&ndash; 其他配置信息 &ndash;&gt;-->
+<!--        <property name="freemarkerSettings">-->
+<!--            <props>-->
+<!--                &lt;!&ndash; 设置 freemarker 渲染时候采用的字符集 &ndash;&gt;-->
+<!--                <prop key="defaultEncoding">UTF-8</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+
+
+<!--    <bean id="freeMarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">-->
+<!--        <property name="defaultEncoding" value="UTF-8"/>-->
+<!--        &lt;!&ndash; 模板路径 &ndash;&gt;-->
+<!--        <property name="templateLoaderPath" value="/WEB-INF/freeMarker/"/>-->
+<!--        &lt;!&ndash; 配置文件 &ndash;&gt;-->
+<!--        <property name="freemarkerSettings" ref="freemarkerSettings"/>-->
+<!--        &lt;!&ndash; 自定义指令 &ndash;&gt;-->
+<!--        <property name="freemarkerVariables">-->
+<!--            <map>-->
+<!--                <entry key="xml_escape" value-ref="fmXmlEscape"/>-->
+<!--                &lt;!&ndash;<entry key="view_url" value="http://localhost:8299/Store/content/css/"/>&ndash;&gt;-->
+<!--                &lt;!&ndash;<entry key="JS_URL" value="http://localhost:8299/Store/content/js/"/>&ndash;&gt;-->
+<!--            </map>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+    <bean id="freeMarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <!-- 模板路径 -->
         <property name="templateLoaderPath" value="/WEB-INF/ftl/"/>
-        <!-- 其他配置信息 -->
-        <property name="freemarkerSettings">
-            <props>
-                <!-- 设置 freemarker 渲染时候采用的字符集 -->
-                <prop key="defaultEncoding">UTF-8</prop>
-            </props>
+        <!-- 配置文件 -->
+        <property name="freemarkerSettings" ref="freemarkerSettings"/>
+        <!-- 自定义指令 -->
+        <property name="freemarkerVariables">
+            <map>
+                <entry key="xml_escape" value-ref="fmXmlEscape"/>
+                <!--<entry key="view_url" value="http://localhost:8299/Store/content/css/"/>-->
+                <!--<entry key="JS_URL" value="http://localhost:8299/Store/content/js/"/>-->
+            </map>
         </property>
     </bean>
+
+    <!-- 配置文件 -->
+    <bean id="freemarkerSettings" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="location" value="classpath:conf/freemarker.properties"/>
+    </bean>
+    <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>
+
+    <!--识图解析器-->
+    <bean id="freeMarkerViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
+        <property name="viewNames" value="*.ftl"/>
+        <property name="contentType" value="text/html; charset=utf-8"/>
+        <property name="cache" value="true"/>
+        <property name="suffix" value=""/>
+        <!--    <property name="exposeRequestAttributes" value="true" />
+            <property name="exposeSessionAttributes" value="true" />
+            <property name="exposeSpringMacroHelpers" value="true" /> -->
+        <property name="order" value="0"/>
+    </bean>
+    <!--对模型视图名称的解析，即在模型视图名称添加前后缀 通用解析器-->
+<!--    <bean id="viewResolver"-->
+<!--          class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+<!--        <property name="prefix" value=""/>-->
+<!--        <property name="viewNames" value="*.jsp"/>-->
+<!--        <property name="suffix" value=""/>-->
+<!--        <property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView"/>-->
+<!--        <property name="order" value="1"></property>-->
+<!--    </bean>-->
 
 
 

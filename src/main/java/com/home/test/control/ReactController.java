@@ -12,12 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ReactController {
     @RequestMapping("/")
     public String firstController(Model model){
-
         return "index";
     }
     @RequestMapping("/aa")
     public String seController(Model model){
-
         return "first";
     }
 
