@@ -1,25 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
-    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-</head>
-<body>
-<div id="sb-site">
-    <#include "mainsite.ftl" /><#--这个是主要的菜单导航和内容显示的文件-->
-</div>
-<div id="app">
-    <div v-html="message"></div>
-</div>
 
-<script>
-    new Vue({
-        el: '#app',
-        data: {
-            message: '<h1>菜鸟教程</h1>'
-        }
-    })
-</script>
-</body>
-</html>
+<#-- 引入布局指令的命名空间 -->
+<#import "frame/mainsite.ftl"  as frame /><#--这个是主要的菜单导航和内容显示的文件-->
+<#-- 调用布局指令 -->
+<@frame.htmlHead title="first">
+</@frame.htmlHead>
+<@frame.layout>
+<#-- 将下面这个main content嵌入到layout指令的nested块中 -->
+    <div id="app">
+        <div>{{message}}</div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: '<h1>菜鸟教程</h1>'
+            }
+        })
+    </script>
+</@frame.layout>
+
+
+
