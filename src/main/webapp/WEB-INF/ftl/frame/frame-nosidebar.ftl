@@ -1,5 +1,3 @@
-
-
 <#macro htmlHead title >
 <html>
 <head>
@@ -15,9 +13,11 @@
 </#macro >
 <#macro layout>
 <body>
-<div style=" text-align:center; font-size:30px;">
-    <#--        <#include "header.ftl">-->
-    <#include "sidebar.ftl"><!-- 左侧菜单导航栏 -->
+<div >
+    <div class="header" style="text-align:center; font-size:30px;">
+        <#include "header.ftl">
+    </div>
+
     <#-- 在这里嵌入main content -->
     <div id="right" style="float:left ; width:90%; height:100%;">
         <#nested>

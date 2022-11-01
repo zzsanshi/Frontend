@@ -1,1 +1,6 @@
-<div style="background-color: #b4efb8;">header</div>
+<div class="header">
+    <nav>
+        <a href="/">index</a>
+        <a href="/aa">first</a>
+    </nav>
+</div>

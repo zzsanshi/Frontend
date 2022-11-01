@@ -1,6 +1,6 @@
 
 <#-- 引入布局指令的命名空间 -->
-<#import "frame/mainsite.ftl"  as frame /><#--这个是主要的菜单导航和内容显示的文件-->
+<#import "frame/frame-nosidebar.ftl"  as frame /><#--这个是主要的菜单导航和内容显示的文件-->
 <#-- 调用布局指令 -->
 <@frame.htmlHead title="first">
 </@frame.htmlHead>
