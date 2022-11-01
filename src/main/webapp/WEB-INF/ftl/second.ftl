@@ -1,5 +1,5 @@
 <#-- 引入布局指令的命名空间 -->
-<#import "frame/frame-sidebar.ftl"  as frame /><#--这个是主要的菜单导航和内容显示的文件-->
+<#import "frame/frame.ftl"  as frame /><#--这个是主要的菜单导航和内容显示的文件-->
 <#-- 调用布局指令 -->
 <@frame.htmlHead title="">
 </@frame.htmlHead>

@@ -15,14 +15,15 @@
 <body>
 <div >
     <div class="header" style="text-align:center; font-size:30px;">
-        <#include "header.ftl">
+            <#include "header.ftl">
     </div>
-
+    <hr>
+<#--    <#include "sidebar.ftl"><!-- 左侧菜单导航栏 &ndash;&gt;-->
     <#-- 在这里嵌入main content -->
-    <div id="right" style="float:left ; width:90%; height:100%;">
+    <div id="right" style="float:left ; width:100%; height:100%;">
         <#nested>
     </div>
-    <#--        <#include "footer.ftl">-->
+    <#--<#include "footer.ftl">-->
 </div>
 </body>
 </html>

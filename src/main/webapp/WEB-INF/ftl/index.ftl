@@ -1,39 +1,40 @@
-<#import "frame/frame-sidebar.ftl"  as frame /><#--这个是主要的菜单导航和内容显示的文件-->
+<#import "frame/frame.ftl"  as frame /><#--这个是主要的菜单导航和内容显示的文件-->
 <@frame.htmlHead title="index">
 
 </@frame.htmlHead>
 <#-- 调用布局指令 -->
 <@frame.layout>
-    <h1>ss</h1>
-
     <div id="root">
-        <span @click="clickTest">test</span>
-        <button @click="clickTest">search</button>
-        <el-table
-                class="table"
-                :data="tableData.slice((currentPage-1)*pageSize,currentPage*pageSize)"
-                border
-                highlight-current-row
-        >
-            <el-table-column prop="id" label="ID" width="180"></el-table-column>
-            <el-table-column prop="address1" label="地址1" width="180" show-overflow-tooltip></el-table-column>
-            <el-table-column prop="amount1" sortable label="数值1"></el-table-column>
-            <el-table-column prop="amount6" sortable label="数值6">
-                <template slot-scope="scope">
-                    <span>{{(scope.row.amount1, scope.row.amount2)}}</span>
-                </template>
-            </el-table-column>
-        </el-table>
-        <el-pagination
-                <#--            hide-on-single-page-->
-                @size-change="handleSizeChange"
-                @current-change="handleCurrentChange"
-                :current-page="currentPage"
-                :page-sizes="[2,5]"
-                :page-size="pageSize"
-                layout="total, sizes, prev, pager, next, jumper"
-                :total="tableData.length">
-        </el-pagination>
+        <div style=" float:left;width:10%; height:100%; ">
+            <#include "tab.ftl">
+        </div>
+        <div style="float:left ; width:90%; height:100%;">
+            <el-table
+                    class="table"
+                    :data="tableData.slice((currentPage-1)*pageSize,currentPage*pageSize)"
+                    border
+                    highlight-current-row
+            >
+                <el-table-column prop="id" label="ID" width="180"></el-table-column>
+                <el-table-column prop="address1" label="地址1" width="180" show-overflow-tooltip></el-table-column>
+                <el-table-column prop="amount1" sortable label="数值1"></el-table-column>
+                <el-table-column prop="amount6" sortable label="数值6">
+                    <template slot-scope="scope">
+                        <span>{{(scope.row.amount1, scope.row.amount2)}}</span>
+                    </template>
+                </el-table-column>
+            </el-table>
+            <el-pagination
+                    <#--            hide-on-single-page-->
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    :current-page="currentPage"
+                    :page-sizes="[2,5]"
+                    :page-size="pageSize"
+                    layout="total, sizes, prev, pager, next, jumper"
+                    :total="tableData.length">
+            </el-pagination>
+        </div>
     </div>
 
     <script type="text/javascript">
