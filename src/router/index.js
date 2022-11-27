@@ -1,5 +1,9 @@
 import {createRouter, createWebHistory} from "vue-router"
 import Anime from "../view/Anime"
+import Movie from "../view/movie/MovieMain"
+import West from "../view/movie/West"
+import Chinese from "../view/movie/Chinese"
+
 
 const routes = [
     //homepage
@@ -21,7 +25,7 @@ const routes = [
     {
         path: "/movie",
         name: "Movie",
-        component: () => import("../view/movie/MovieMain"),
+        component: Movie,
         meta: {
             title: "movie"
         },
@@ -30,14 +34,14 @@ const routes = [
             {
                 path: 'chinese',
                 name: 'Chinese',
-                component: () => import("../view/movie/Chinese"),
+                component: Chinese,
                 meta: {
                     title: "chinese"
                 }
             }, {
                 path: 'west',
                 name: 'West',
-                component: () => import("../view/movie/West"),
+                component: West,
                 meta: {
                     title: "west"
                 }

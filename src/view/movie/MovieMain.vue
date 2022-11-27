@@ -1,8 +1,7 @@
 <template>
 
   <div class="menu_page" >
-    <el-menu default-active='1' mode='vertical' @select='handleSelect' class="el-menu-demo"
-             text-color='white' active-text-color='pink' :collapse="false" :unique-opened='true'>
+    <el-menu default-active='1' mode='vertical'  :collapse="false" :unique-opened='true' class="el-menu-vertical-demo">
           <el-menu-item index='1'>
             <router-link active-class="active"  to="/movie/chinese">
             <span color="black">中文</span>
@@ -13,9 +12,6 @@
             <span>外文</span>
             </router-link>
           </el-menu-item>
-<!--      <el-menu-item index="3">-->
-<!--        <span>test</span>-->
-<!--      </el-menu-item>-->
       </el-menu>
   </div>
     <router-view style="margin-left: 100px"/>
@@ -28,9 +24,7 @@ export default {
     }
   },
   methods: {
-    handleSelect(index) {
-      // console.log(index)
-    }
+
   }
 }
 </script>
@@ -40,13 +34,11 @@ export default {
   position: fixed;
   top: 50px;
   left: 0;
-  min-height: 100%;
+  height: 100%;
   z-index: 99;
 }
-
 .el-menu {
   /*border: none;*/
-  color: red;
 }
 
 .fa-margin {
@@ -55,7 +47,7 @@ export default {
 
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 100px;
-  min-height: 400px;
+  min-height: 100%
 }
 
 .el-menu-vertical-demo {
