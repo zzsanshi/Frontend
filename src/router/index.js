@@ -1,19 +1,58 @@
 import {createRouter, createWebHistory} from "vue-router"
-import HomeView from "../view/HomePage"
+import Anime from "../view/Anime"
 
 const routes = [
+    //homepage
     {
         path: "/",
-        component: HomeView,
-        meta:{
-            title:"base"
-        }
-
+        name: "Home",
+        redirect: '/anime'
     },
-    // {
-    //     path: "/page",
-    //     component: ()=>import("../view/FirstPage")
-    // }
+    //anime
+    {
+        path: "/anime",
+        name: "Anime",
+        component: Anime,
+        meta: {
+            title: "anime"
+        }
+    },
+    //movie
+    {
+        path: "/movie",
+        name: "Movie",
+        component: () => import("../view/movie/MovieMain"),
+        meta: {
+            title: "movie"
+        },
+        redirect: '/movie/west',
+        children: [
+            {
+                path: 'chinese',
+                name: 'Chinese',
+                component: () => import("../view/movie/Chinese"),
+                meta: {
+                    title: "chinese"
+                }
+            }, {
+                path: 'west',
+                name: 'West',
+                component: () => import("../view/movie/West"),
+                meta: {
+                    title: "west"
+                }
+            },
+        ]
+    },
+    //tech
+    {
+        path: "/tech",
+        component: () => import("../view/Tech"),
+        meta: {
+            title: "tech"
+        }
+    },
+
 ]
 const router = createRouter({
     history: createWebHistory(),

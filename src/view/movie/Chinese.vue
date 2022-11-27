@@ -1,10 +1,10 @@
 <template>
-<span>test</span>
+<span>chinese</span>
 </template>
 
 <script>
 export default {
-  name: "homePage"
+  name: "chinese"
 }
 </script>
 

@@ -1,10 +1,10 @@
 <template>
-
+<span>tech</span>
 </template>
 
 <script>
 export default {
-  name: "second"
+  name: "tech"
 }
 </script>
 
