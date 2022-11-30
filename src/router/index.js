@@ -29,7 +29,7 @@ const routes = [
         meta: {
             title: "movie"
         },
-        redirect: '/movie/west',
+        redirect: '/movie/chinese',
         children: [
             {
                 path: 'chinese',

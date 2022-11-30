@@ -13,8 +13,11 @@
             </router-link>
           </el-menu-item>
       </el-menu>
+  </div >
+  <div style="margin-left: 100px">
+    <router-view />
   </div>
-    <router-view style="margin-left: 100px"/>
+
 </template>
 <script>
 export default {
